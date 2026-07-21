@@ -1,0 +1,6 @@
+{
+  "allure": {
+    "directory": "allure-results",
+    "title": "Test Automation Showcase - NUnit tests"
+  }
+}
