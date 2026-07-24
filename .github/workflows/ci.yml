@@ -65,7 +65,13 @@ jobs:
             --configuration Release \
             --logger "trx;LogFileName=reqnroll-results.trx" \
             --results-directory TestResults
-
+      
+      - name: Collect Allure results
+        if: always()
+        run: |
+          mkdir -p allure-results
+          find . -path '*/bin/*/allure-results' -mindepth 1 -maxdepth 1 -exec cp -r {} allure-results/ \;
+      
       - name: Generate Allure report
         if: always()
         uses: simple-elf/allure-report-action@master
