@@ -33,8 +33,8 @@ jobs:
 
       - name: Run NUnit tests
         env:
-          ApiBaseUrl: ${{ secrets.API_BASE_URL }}
-          UiBaseUrl: ${{ secrets.UI_BASE_URL }}
+          ApiBaseUrl: ${{ vars.API_BASE_URL }}
+          UiBaseUrl: ${{ vars.UI_BASE_URL }}
           SauceDemoCredentialsStandard__Username: ${{ secrets.SAUCE_STANDARD_USERNAME }}
           SauceDemoCredentialsStandard__Password: ${{ secrets.SAUCE_PASSWORD }}
           SauceDemoCredentialsLocked__Username: ${{ secrets.SAUCE_LOCKED_USERNAME }}
@@ -51,8 +51,8 @@ jobs:
       - name: Run Reqnroll tests
         if: always()
         env:
-          ApiBaseUrl: ${{ secrets.API_BASE_URL }}
-          UiBaseUrl: ${{ secrets.UI_BASE_URL }}
+          ApiBaseUrl: ${{ vars.API_BASE_URL }}
+          UiBaseUrl: ${{ vars.UI_BASE_URL }}
           SauceDemoCredentialsStandard__Username: ${{ secrets.SAUCE_STANDARD_USERNAME }}
           SauceDemoCredentialsStandard__Password: ${{ secrets.SAUCE_PASSWORD }}
           SauceDemoCredentialsLocked__Username: ${{ secrets.SAUCE_LOCKED_USERNAME }}
