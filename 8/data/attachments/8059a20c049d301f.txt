@@ -1,0 +1,3 @@
+[12:02:20.046] --> REQUEST: GET https://restful-booker.herokuapp.com/booking/99999999
+[12:02:20.054] <-- RESPONSE: 404 NotFound
+    Body: Not Found
