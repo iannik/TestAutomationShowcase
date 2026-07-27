@@ -17,7 +17,7 @@ namespace TestAutomationShowcase.Tests.Tests.API;
 [Category("API")]
 [AllureNUnit]
 [AllureFeature("Restful Booker API")]
-[AllureSuite("NUnit API Tests")]
+[AllureSuite("NUnitAPITests")]
 public class BookingApiTests
 {
     private BookingClient _client;

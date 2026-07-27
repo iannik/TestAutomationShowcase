@@ -16,7 +16,7 @@ namespace TestAutomationShowcase.Tests.Tests.UI;
 [Category("UI")]
 [AllureNUnit]
 [AllureFeature("SauceDemo UI")]
-[AllureSuite("Login UI Playwright Tests")]
+[AllureSuite("LoginUIPlaywrightTests")]
 public class LoginTests : PlaywrightBase
 {
     private LoginPage _loginPage;
@@ -33,21 +33,25 @@ public class LoginTests : PlaywrightBase
         Assert.That(Page.Url, Does.Contain("inventory.html"));
     }
 
-    [Test]
-    public async Task LockedOutUser_ShowsErrorMessage()
+    public static IEnumerable<TestCaseData> InvalidCredentials()
     {
-        await _loginPage.GoToAsync();
-        await _loginPage.LoginAsync(ConfigReader.Settings.SauceDemoCredentialsLocked.Username, ConfigReader.Settings.SauceDemoCredentialsLocked.Password);
+        yield return new TestCaseData(ConfigReader.Settings.SauceDemoCredentialsLocked.Username, ConfigReader.Settings.SauceDemoCredentialsLocked.Password, "Epic sadface: Sorry, this user has been locked out.")
+            .SetName("Locked out user");
 
-        await Assertions.Expect(_loginPage.Error).ToHaveTextAsync("Epic sadface: Sorry, this user has been locked out.");
+        yield return new TestCaseData("", "", "Epic sadface: Username is required")
+            .SetName("Empty credentials");
+
+        yield return new TestCaseData(ConfigReader.Settings.SauceDemoCredentialsStandard.Username, "wrongpassword", "Epic sadface: Username and password do not match any user in this service")
+            .SetName("Wrong password");
     }
 
     [Test]
-    public async Task EmptyCredentials_ShowsErrorMessage()
+    [TestCaseSource(nameof(InvalidCredentials))]
+    public async Task InvalidCredentials_ShowsErrorMessage(string username, string password, string errorMessage)
     {
         await _loginPage.GoToAsync();
-        await _loginPage.LoginAsync(string.Empty, string.Empty);
+        await _loginPage.LoginAsync(username, password);
 
-        await Assertions.Expect(_loginPage.Error).ToHaveTextAsync("Epic sadface: Username is required");
+        await Assertions.Expect(_loginPage.Error).ToHaveTextAsync(errorMessage);
     }
 }
