@@ -1,0 +1,4 @@
+[18:27:28.613] --> REQUEST: PUT https://restful-booker.herokuapp.com/booking/99999999
+    Body: {"firstname":"John","lastname":"Smith","totalprice":240,"depositpaid":true,"bookingdates":{"checkin":"2026-09-05","checkout":"2026-09-10"},"additionalneeds":"Breakfast"}
+[18:27:28.645] <-- RESPONSE: 405 MethodNotAllowed
+    Body: Method Not Allowed
