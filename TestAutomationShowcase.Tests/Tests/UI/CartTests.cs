@@ -16,7 +16,7 @@ namespace TestAutomationShowcase.Tests.Tests.UI;
 [Category("UI")]
 [AllureNUnit]
 [AllureFeature("SauceDemo UI")]
-[AllureSuite("Cart UI Playwright Tests")]
+[AllureSuite("CartUIPlaywrightTests")]
 public class CartTests : PlaywrightBase
 {
     private LoginPage _loginPage;
