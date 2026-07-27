@@ -75,6 +75,10 @@ Page objects (`LoginPage`, `ProductsPage`, `CartPage`, `CheckoutPage`) expose me
 
 Both suites are wired for Allure (`Allure.NUnit` / `Allure.Reqnroll`) with suite/feature tags, so results from either style land in one consistent report.
 
+### CI
+
+Every push and pull request runs both suites in GitHub Actions, builds a combined Allure report with run history, and publishes it to GitHub Pages - **[live report](https://iannik.github.io/TestAutomationShowcase)**. Pull requests also get a pass/fail test summary posted directly via `dorny/test-reporter`, so results show up as a check without anyone needing to open the Actions tab.
+
 ## Tech stack
 
 | Concern            | Choice                                   |
@@ -86,6 +90,7 @@ Both suites are wired for Allure (`Allure.NUnit` / `Allure.Reqnroll`) with suite
 | Reporting          | Allure                                    |
 | DI                 | Microsoft.Extensions.DependencyInjection / Reqnroll `IObjectContainer` |
 | Config             | `Microsoft.Extensions.Configuration`, layered JSON + env vars |
+| CI/CD              | GitHub Actions - build, test, and Allure report publishing on every push/PR |
 
 ## Getting started
 
