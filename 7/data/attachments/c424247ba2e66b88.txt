@@ -1,0 +1,4 @@
+[11:57:34.314] --> REQUEST: POST https://restful-booker.herokuapp.com/booking
+    Body: {"firstname":"John","lastname":"Doe","totalprice":250,"depositpaid":true,"bookingdates":{"checkin":"2026-08-01","checkout":"2026-08-10"},"additionalneeds":"Breakfast"}
+[11:57:35.198] <-- RESPONSE: 200 OK
+    Body: {"bookingid":3635,"booking":{"firstname":"John","lastname":"Doe","totalprice":250,"depositpaid":true,"bookingdates":{"checkin":"2026-08-01","checkout":"2026-08-10"},"additionalneeds":"Breakfast"}}

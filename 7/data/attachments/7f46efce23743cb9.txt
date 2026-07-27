@@ -1,0 +1,8 @@
+[11:57:35.674] --> REQUEST: POST https://restful-booker.herokuapp.com/booking
+    Body: {"firstname":"John","lastname":"Smith","totalprice":240,"depositpaid":true,"bookingdates":{"checkin":"2026-09-05","checkout":"2026-09-10"},"additionalneeds":"Breakfast"}
+[11:57:35.679] <-- RESPONSE: 200 OK
+    Body: {"bookingid":3644,"booking":{"firstname":"John","lastname":"Smith","totalprice":240,"depositpaid":true,"bookingdates":{"checkin":"2026-09-05","checkout":"2026-09-10"},"additionalneeds":"Breakfast"}}
+[11:57:35.679] --> REQUEST: PATCH https://restful-booker.herokuapp.com/booking/3644
+    Body: {"firstname":"John_upd_skipAuth"}
+[11:57:35.687] <-- RESPONSE: 403 Forbidden
+    Body: Forbidden

@@ -1,0 +1,4 @@
+[11:57:35.655] --> REQUEST: PATCH https://restful-booker.herokuapp.com/booking/99999999
+    Body: {"firstname":"John_upd_invalidID"}
+[11:57:35.661] <-- RESPONSE: 405 MethodNotAllowed
+    Body: Method Not Allowed
