@@ -21,7 +21,7 @@ namespace TestAutomationShowcase.GherkinTests
         {
             _container.RegisterTypeAs<ApiTestLogger, ApiTestLogger>();
 
-            _container.RegisterInstanceAs(new AuthClient(CreateAuthHttpClient()));
+            _container.RegisterInstanceAs<IAuthClient>(new AuthClient(CreateAuthHttpClient()));
             _container.RegisterTypeAs<TokenProvider, TokenProvider>();
             _container.RegisterTypeAs<AuthHandler, AuthHandler>();
 

@@ -39,6 +39,8 @@ The tests themselves follow standard test design techniques, not just whatever c
 ```
 TestAutomationShowcase.Configuration   → strongly-typed settings, layered config sources
 TestAutomationShowcase.Core            → shared library: API clients, Page Objects, models, HTTP pipeline
+TestAutomationShowcase.Core.Tests      → unit tests for Core's own logic
+
 TestAutomationShowcase.Tests           → "classic" NUnit test suite (UI + API)
 TestAutomationShowcase.GherkinTests    → BDD test suite (Reqnroll/Gherkin), same Core underneath
 ```
@@ -79,6 +81,15 @@ Both suites are wired for Allure (`Allure.NUnit` / `Allure.Reqnroll`) with suite
 
 Every push and pull request runs both suites in GitHub Actions, builds a combined Allure report with run history, and publishes it to GitHub Pages - **[live report](https://iannik.github.io/TestAutomationShowcase)**. Pull requests also get a pass/fail test summary posted directly via `dorny/test-reporter`, so results show up as a check without anyone needing to open the Actions tab.
 
+### Design patterns & OOP principles
+
+- **Chain of Responsibility** - the `DelegatingHandler` pipeline (`AuthHandler → LoggingHandler → HttpClientHandler`) means auth and logging are each one handler's job, not an *if* block inside every API call.
+- **Template Method** - `BaseApiClient.SendAsync<T>` owns the entire request lifecycle once; concrete clients like `BookingClient` just supply the endpoint and payload, never the plumbing.
+- **Dependency Inversion** - `TokenProvider` depends on `IAuthClient`, not the concrete `AuthClient`. That interface exists because `TestAutomationShowcase.Core.Tests` needed it: a test fires 20 concurrent `GetTokenAsync()` calls through a fake `IAuthClient` and asserts the underlying token fetch happens exactly once, proving the `SemaphoreSlim`-based caching actually works under concurrency.
+
+Also there are some good practice examples in the codebase: extension methods for model logic (`BookingExtensions.ApplyUpdate`), generics for reusable response wrapping (`ApiResponse<T>`), and immutable configuration via *init*-only properties.
+
+
 ## Tech stack
 
 | Concern            | Choice                                   |
@@ -91,6 +102,7 @@ Every push and pull request runs both suites in GitHub Actions, builds a combine
 | DI                 | Microsoft.Extensions.DependencyInjection / Reqnroll `IObjectContainer` |
 | Config             | `Microsoft.Extensions.Configuration`, layered JSON + env vars |
 | CI/CD              | GitHub Actions - build, test, and Allure report publishing on every push/PR |
+| Unit test mocking  | NSubstitute |
 
 ## Getting started
 
