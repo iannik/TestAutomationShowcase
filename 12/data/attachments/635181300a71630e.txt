@@ -1,0 +1,11 @@
+[20:13:36.573] --> REQUEST: POST https://restful-booker.herokuapp.com/booking
+    Body: {"firstname":"John","lastname":"Smith","totalprice":240,"depositpaid":true,"bookingdates":{"checkin":"2026-09-05","checkout":"2026-09-10"},"additionalneeds":"Breakfast"}
+[20:13:36.646] <-- RESPONSE: 200 OK
+    Body: {"bookingid":1491,"booking":{"firstname":"John","lastname":"Smith","totalprice":240,"depositpaid":true,"bookingdates":{"checkin":"2026-09-05","checkout":"2026-09-10"},"additionalneeds":"Breakfast"}}
+[20:13:36.647] --> REQUEST: PATCH https://restful-booker.herokuapp.com/booking/1491
+    Body: {"firstname":"John_upd","bookingdates":{"checkin":"2027-01-01","checkout":"2027-01-10"}}
+[20:13:36.720] <-- RESPONSE: 200 OK
+    Body: {"firstname":"John_upd","lastname":"Smith","totalprice":240,"depositpaid":true,"bookingdates":{"checkin":"2027-01-01","checkout":"2027-01-10"},"additionalneeds":"Breakfast"}
+[20:13:36.720] --> REQUEST: GET https://restful-booker.herokuapp.com/booking/1491
+[20:13:36.815] <-- RESPONSE: 200 OK
+    Body: {"firstname":"John_upd","lastname":"Smith","totalprice":240,"depositpaid":true,"bookingdates":{"checkin":"2027-01-01","checkout":"2027-01-10"},"additionalneeds":"Breakfast"}
