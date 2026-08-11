@@ -6,7 +6,7 @@ namespace TestAutomationShowcase.Core.ApiClients;
 /// <summary>
 /// Provides authentication functionality for obtaining tokens from a RESTful API.
 /// </summary>
-public class AuthClient
+public class AuthClient : IAuthClient
 {
     private readonly HttpClient _httpClient;
 

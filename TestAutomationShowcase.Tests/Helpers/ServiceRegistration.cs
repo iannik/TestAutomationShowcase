@@ -19,7 +19,7 @@ namespace TestAutomationShowcase.Tests.Helpers
             services.AddTransient<LoggingHandler>();
             services.AddTransient<AuthHandler>();
 
-            services.AddHttpClient<AuthClient>(client =>
+            services.AddHttpClient<IAuthClient, AuthClient>(client =>
             {
                 client.BaseAddress = new Uri(ConfigReader.Settings.ApiBaseUrl);
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

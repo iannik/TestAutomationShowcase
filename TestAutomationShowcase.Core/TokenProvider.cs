@@ -8,12 +8,12 @@ namespace TestAutomationShowcase.Core;
 /// <remarks>Ensures only one token is fetched and reused across concurrent requests.</remarks>
 public class TokenProvider
 {
-    private readonly AuthClient _authClient;
+    private readonly IAuthClient _authClient;
     private readonly SemaphoreSlim _lock = new(1, 1);
 
     private string? _token;
 
-    public TokenProvider(AuthClient authClient)
+    public TokenProvider(IAuthClient authClient)
     {
         _authClient = authClient;
     }

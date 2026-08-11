@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAutomationShowcase.Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAutomationShowcase.Tests", "TestAutomationShowcase.Tests\TestAutomationShowcase.Tests.csproj", "{2A2D1E29-0650-49C0-B2F9-541E8FD1E38C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAutomationShowcase.Core.Tests", "TestAutomationShowcase.Core.Tests\TestAutomationShowcase.Core.Tests.csproj", "{75AE870C-5A63-416B-9AAA-AE50088DB500}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2A2D1E29-0650-49C0-B2F9-541E8FD1E38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A2D1E29-0650-49C0-B2F9-541E8FD1E38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A2D1E29-0650-49C0-B2F9-541E8FD1E38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75AE870C-5A63-416B-9AAA-AE50088DB500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75AE870C-5A63-416B-9AAA-AE50088DB500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75AE870C-5A63-416B-9AAA-AE50088DB500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75AE870C-5A63-416B-9AAA-AE50088DB500}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
