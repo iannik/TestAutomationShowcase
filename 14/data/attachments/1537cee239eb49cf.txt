@@ -1,0 +1,10 @@
+[15:38:26.746] --> REQUEST: POST https://restful-booker.herokuapp.com/booking
+    Body: {"firstname":"John","lastname":"Smith","totalprice":240,"depositpaid":true,"bookingdates":{"checkin":"2026-09-05","checkout":"2026-09-10"},"additionalneeds":"Breakfast"}
+[15:38:26.754] <-- RESPONSE: 200 OK
+    Body: {"bookingid":3995,"booking":{"firstname":"John","lastname":"Smith","totalprice":240,"depositpaid":true,"bookingdates":{"checkin":"2026-09-05","checkout":"2026-09-10"},"additionalneeds":"Breakfast"}}
+[15:38:26.755] --> REQUEST: DELETE https://restful-booker.herokuapp.com/booking/3995
+[15:38:26.763] <-- RESPONSE: 201 Created
+    Body: Created
+[15:38:26.763] --> REQUEST: GET https://restful-booker.herokuapp.com/booking/3995
+[15:38:26.772] <-- RESPONSE: 404 NotFound
+    Body: Not Found
